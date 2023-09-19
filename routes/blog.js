@@ -1,70 +1,7 @@
 const express = require('express')
 const path = require('path')//path function
 const router = express.Router();
-// const mongoose = require('mongoose');
-// const bodyParser = require('body-parser')
 
-// mongoose.connect('mongodb://localhost:27017/userdata', {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// });
-// // Check for successful connection
-// mongoose.connection.on('connected', () => {
-//     console.log('Connected to MongoDB');
-//   });
-  
-//   // Check for errors during connection
-//   mongoose.connection.on('error', (err) => {
-//     console.error('MongoDB connection error:', err);
-//   });
-  
-// const registrationSchema = new mongoose.Schema({
-//     //Schema
-//     name: {
-//         type: String,
-//         required: true,
-//       },
-//       email: {
-//         type: String,
-//         required: true,
-//       },
-//       phone: {
-//         type: String,
-//         required: true,
-//       },
-//       age: {
-//         type: Number,
-//         required: true,
-//       },
-//       gender: {
-//         type: String,
-//         enum: ['Male', 'Female'], // Specify the allowed values
-//         required: true,
-//       },      
-//       departuredate: {
-//         type: Date,
-//         required: true,
-//       },
-//       returndate: {
-//         type: Date,
-//         required: true,
-//       },
-//       destination: {
-//         type: [String],
-//         required: true,
-//       },
-//       locations: {
-//         type: [String],
-//         required: true,
-//       },
-//       termsAndConditions: {
-//         type: Boolean,
-//         required: true,
-//       },
-//   });
-
-// const Registration = mongoose.model('Registration', registrationSchema);
-// router.use(bodyParser.urlencoded({ extended: true }));
 
 router.get('/',(req,res)=>{
     res.sendFile(path.join(__dirname,'../templates/index.html'))//use '../' because templates/index.html outside of the routes folder 
