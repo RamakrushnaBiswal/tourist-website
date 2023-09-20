@@ -43,6 +43,9 @@ router.get('/register', (req, res) => {
 router.get('/home', (req, res) => {
     res.sendFile(path.join(__dirname, '../templates/index.html'));
 });
+router.get('/success', (req, res) => {
+    res.sendFile(path.join(__dirname, '../templates/success.html'));
+});
 router.post('/register', async (req, res) => {
     const { name, email, phone, age, mygender, departuredate, returndate, destination, locations, t_and_c } = req.body;
 
@@ -58,7 +61,7 @@ router.post('/register', async (req, res) => {
         );        
         connection.release(); 
 
-        res.redirect('./home');
+        res.redirect('./success');
     } catch (error) {
         console.error('Error inserting user data into the database:', error);
         res.status(500).send('Registration failed. Please try again later.');
