@@ -477,6 +477,10 @@ nav ul li a{
     width: 500px;
 }
 
+.language-dropdown {
+    display: inline-block;
+  }
+  
 .abt-text h1{
     font-size: 70px;
     color: white;

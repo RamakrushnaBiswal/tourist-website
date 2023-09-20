@@ -60,7 +60,8 @@ router.post('/register', async (req, res) => {
 
     try {
         const connection = await userdata.getConnection();
-         const destinationString = destination.join(', ');
+        
+        const destinationString = Array.isArray(destination) ? destination.join(', ') : destination;  
         const [rows, fields] = await connection.execute(
             'INSERT INTO users (name, email, phone, age, gender, departure_date, return_date, destination, package, terms_and_conditions) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
             [name, email, phone, age, mygender, departuredate, returndate, destinationString, locations, t_and_c]
