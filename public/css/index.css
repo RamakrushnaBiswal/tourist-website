@@ -43,7 +43,7 @@
 nav{
     width: 100%;
     position: fixed;
-    background-color:transparent;
+    background-color:#1b5358;
     box-shadow: 5px 5px 30px rgba(0, 0, 0, 15%);
     display: flex;
     align-items: center;
@@ -376,7 +376,7 @@ nav ul li a{
 
 .footer{
     margin-top: 80px;
-    background-color: #190019;
+    background-color: #473e66;
 }
 
 .foot{
@@ -460,7 +460,7 @@ nav ul li a{
 /* About Us */
 
 .aboutbody{
-    background-color: #191919;
+    background-color: #072e33;
 }
 
 .about{
@@ -485,7 +485,7 @@ nav ul li a{
 }
 
 .abt-text h1 span{
-    color: #fc0050;
+    color: #451952;
     letter-spacing: 1px;
 }
 
@@ -508,7 +508,7 @@ nav ul li a{
 
 .connectbtn{
     display: inline-block;
-    background-color: #fc0050;
+    background-color: #451952;
     font-size: 18px;
     color: white;
     font-weight: bold;
@@ -521,7 +521,7 @@ nav ul li a{
 
 .connectbtn:hover{
     background-color: transparent;
-    border: 2px solid #fc0050;
+    border: 2px solid #451952;
     transform: scale(1.1);
 }
 
@@ -551,7 +551,7 @@ nav ul li a{
 /* Contact Us */
 
 .contactbody{
-    background-color: #101010;
+    background-color: #6da5c0;
     background-repeat: no-repeat;
     background-size: cover;
     
@@ -570,7 +570,7 @@ nav ul li a{
 }
 
 .contact-form h1 span{
-    color:#fc0050;
+    color:#451952;
 }
 
 .contact-form p{
@@ -587,16 +587,16 @@ nav ul li a{
     padding: 17px;
     border: none;
     outline: none;
-    background-color: #191919;
+    background-color: white;
     font-size: 20px;
-    color: white;
+    color: black;
     margin-bottom: 10px;
     border-radius: 10px;
 }
 
 .contact-form form .submit-btn{
     display: inline-block;
-    background-color: #fc0050;
+    background-color: #451952;
     font-size: 27px;
     font-weight: 600px;
     border: 2px solid transparent;
@@ -608,7 +608,7 @@ nav ul li a{
 }
 
 .contact-form form .submit-btn:hover{
-    border: 2px solid #fc0050;
+    border: 2px solid #451952;
     background-color: transparent;
     transform: scale(1.1);
 
@@ -617,7 +617,7 @@ nav ul li a{
 /* Registration Form */
 
 .register-body{
-    background-color: #101010;
+    background-color: #6da5c0;
     background-repeat: no-repeat;
     background-size: cover;
 
@@ -635,7 +635,7 @@ nav ul li a{
     margin-bottom: 20px;
 }
 .register-form h1 span{
-    color: #fc0050;
+    color: #451952;
 }
 
 .register-form{
@@ -644,9 +644,9 @@ nav ul li a{
 }
 
 .register-form form input{
-    color: white;
+    color: black;
     padding: 17px;
-    background-color: #191919;
+    background-color: whitesmoke;
     font-size: 20px;
     outline: none;
     border: none;
@@ -658,13 +658,13 @@ nav ul li a{
     font-size: 22px;
     font-weight: 500;
     margin-top: 20px;
-    color: #fc0050;
+    color: #451952;
 }
 
 
 .register-form form .submitbtn{
     display: inline-block;
-    background-color: #fc0050;
+    background-color: #451952;
     font-size: 27px;
     font-weight: 600px;
     border: 2px solid transparent;
@@ -675,7 +675,7 @@ nav ul li a{
 }
 
 .register-form form .submitbtn:hover{
-    border: 2px solid #fc0050;
+    border: 2px solid #451952;
     background-color: transparent;
     transform: scale(1.1);
 }
@@ -699,12 +699,12 @@ nav ul li a{
 }
 
 .location-heading h1 span{
-    color: #fc0050;
+    color: #451952;
 }
 
 .location-detail h1{
     padding-top: 60px;
-    color: #fc0050;
+    color: #451952;
     font-size: 40px;
 }
 

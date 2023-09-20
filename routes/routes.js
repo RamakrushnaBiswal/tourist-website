@@ -46,10 +46,16 @@ router.get('/home', (req, res) => {
 router.get('/success', (req, res) => {
     res.sendFile(path.join(__dirname, '../templates/success.html'));
 });
+router.get('/submit', (req, res) => {
+    res.sendFile(path.join(__dirname, '../templates/contact.html'));
+});
+router.get('/thankyou', (req, res) => {
+    res.sendFile(path.join(__dirname, '../templates/thank.html'));
+});
 router.post('/register', async (req, res) => {
     const { name, email, phone, age, mygender, departuredate, returndate, destination, locations, t_and_c } = req.body;
 
-    // for debug debug
+    // for debug
     // console.log('Received data:', { name, email, phone, age, mygender, departuredate, returndate, destination, locations, t_and_c });
 
     try {
@@ -67,4 +73,22 @@ router.post('/register', async (req, res) => {
         res.status(500).send('Registration failed. Please try again later.');
     }
 });
+router.post('/submit', (req, res) => {
+  const { myname, email, subject, message } = req.body;
+
+  // Insert the form data into the database using SQL queries and promises
+  const sql = 'INSERT INTO contact_form(name, email, subject, message) VALUES (?, ?, ?, ?)';
+  
+  userdata.execute(sql, [myname, email, subject, message])
+    .then(() => {
+      // Handle success (e.g., send a response to the user)
+      res.redirect('./thankyou');
+    })
+    .catch((err) => {
+      // Handle error (e.g., send an error response)
+      console.error('Error submitting form:', err);
+      res.status(500).send('Internal Server Error');
+    });
+});
+
 module.exports = router;

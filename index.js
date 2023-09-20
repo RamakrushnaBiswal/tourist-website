@@ -11,6 +11,8 @@ app.use('/locations', require(path.join(__dirname, 'routes/routes.js')));
 app.use('/register', require(path.join(__dirname, 'routes/routes.js')));
 app.use('/home', require(path.join(__dirname, 'routes/routes.js')));
 app.use('/success', require(path.join(__dirname, 'routes/routes.js')));
+app.use('/submit', require(path.join(__dirname, 'routes/routes.js')));
+app.use('/thankyou', require(path.join(__dirname, 'routes/routes.js')));
 app.listen(port, () => {
   console.log(`Mr Traveller app listening on port ${port}`);
 });
