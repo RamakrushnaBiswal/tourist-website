@@ -52,8 +52,8 @@ router.get('/submit', (req, res) => {
 router.get('/thankyou', (req, res) => {
     res.sendFile(path.join(__dirname, '../templates/thank.html'));
 });
-router.get('/flight', (req, res) => {
-    res.sendFile(path.join(__dirname, '../templates/flight.html'));
+router.get('/health', (req, res) => {
+    res.sendFile(path.join(__dirname, '../templates/health.html'));
 });
 router.get('/food', (req, res) => {
     res.sendFile(path.join(__dirname, '../templates/food.html'));
@@ -69,6 +69,9 @@ router.get('/travel', (req, res) => {
 });
 router.get('/policy', (req, res) => {
     res.sendFile(path.join(__dirname, '../templates/policy.html'));
+});
+router.get('/review', (req, res) => {
+    res.sendFile(path.join(__dirname, '../templates/review.html'));
 });
 router.post('/register', async (req, res) => {
     const { name, email, phone, age, mygender, departuredate, returndate, destination, locations, t_and_c } = req.body;

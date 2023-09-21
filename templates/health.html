@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Insurance and Medical Facilities</title>
+    <!-- Link to Tailwind CSS (you should replace this with your Tailwind CSS link) -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto mt-5 p-4">
+        <h1 class="text-3xl font-semibold text-center">Health Insurance and Medical Facilities</h1>
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-3 mt-6">
+            <!-- Insurance Plan 1 -->
+            <div class="max-w-sm mx-auto bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="px-6 py-4">
+                    <h2 class="text-xl font-semibold">Insurance Plan 1</h2>
+                    <p class="mt-2 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget felis urna.</p>
+                </div>
+                <div class="px-6 pt-4 pb-2">
+                    <label class="block mb-2">Select Plan:</label>
+                    <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600" data-price="99">
+                    <p class="mt-2 text-gray-600">$99/month</p>
+                </div>
+            </div>
+
+            <!-- Insurance Plan 2 -->
+            <div class="max-w-sm mx-auto bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="px-6 py-4">
+                    <h2 class="text-xl font-semibold">Insurance Plan 2</h2>
+                    <p class="mt-2 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget felis urna.</p>
+                </div>
+                <div class="px-6 pt-4 pb-2">
+                    <label class="block mb-2">Select Plan:</label>
+                    <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600" data-price="149">
+                    <p class="mt-2 text-gray-600">$149/month</p>
+                </div>
+            </div>
+
+            <!-- Insurance Plan 3 -->
+            <div class="max-w-sm mx-auto bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="px-6 py-4">
+                    <h2 class="text-xl font-semibold">Insurance Plan 3</h2>
+                    <p class="mt-2 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget felis urna.</p>
+                </div>
+                <div class="px-6 pt-4 pb-2">
+                    <label class="block mb-2">Select Plan:</label>
+                    <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600" data-price="199">
+                    <p class="mt-2 text-gray-600">$199/month</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Medical Facilities Section -->
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-3 mt-6">
+            <!-- Medical Facility 1 -->
+            <div class="max-w-sm mx-auto bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="px-6 py-4">
+                    <h2 class="text-xl font-semibold">Hospital A</h2>
+                    <p class="mt-2 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget felis urna.</p>
+                </div>
+            </div>
+
+            <!-- Medical Facility 2 -->
+            <div class="max-w-sm mx-auto bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="px-6 py-4">
+                    <h2 class="text-xl font-semibold">Clinic B</h2>
+                    <p class="mt-2 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget felis urna.</p>
+                </div>
+            </div>
+
+            <!-- Medical Facility 3 -->
+            <div class="max-w-sm mx-auto bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="px-6 py-4">
+                    <h2 class="text-xl font-semibold">Specialty Center C</h2>
+                    <p class="mt-2 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget felis urna.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Total Price Section -->
+        <div class="mt-6 text-center">
+            <div class="bg-blue-100 p-4 rounded-md shadow-md">
+                <strong>Total Monthly Cost:</strong> <span id="totalCost" class="text-blue-600">$0</span>/month
+            </div>
+            <a href="./total"><button id="calculateTotal" class="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-full">Proceed to Payment</button></a>
+        </div>
+    </div>
+
+    <!-- JavaScript for calculating the total -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get the checkboxes and the calculate button
+            const checkboxes = document.querySelectorAll('.form-checkbox');
+            const calculateButton = document.getElementById('calculateTotal');
+            const totalCostElement = document.getElementById('totalCost');
+
+            // Add a click event listener to the calculate button
+            calculateButton.addEventListener('click', function () {
+                // Initialize the total cost
+                let totalCost = 0;
+
+                // Iterate over the checkboxes to sum up selected plans
+                checkboxes.forEach((checkbox) => {
+                    if (checkbox.checked) {
+                        const price = parseFloat(checkbox.getAttribute('data-price'));
+                        totalCost += price;
+                    }
+                });
+
+                // Display the total on the page
+                totalCostElement.textContent = `$${totalCost.toFixed(2)}/month`;
+
+                // Check if at least one plan is selected
+                if (totalCost === 0) {
+                    alert('Please select at least one insurance plan.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
