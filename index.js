@@ -13,6 +13,11 @@ app.use('/home', require(path.join(__dirname, 'routes/routes.js')));
 app.use('/success', require(path.join(__dirname, 'routes/routes.js')));
 app.use('/submit', require(path.join(__dirname, 'routes/routes.js')));
 app.use('/thankyou', require(path.join(__dirname, 'routes/routes.js')));
+app.use('/flight', require(path.join(__dirname, 'routes/routes.js')));
+app.use('/food', require(path.join(__dirname, 'routes/routes.js')));
+app.use('/hotel', require(path.join(__dirname, 'routes/routes.js')));
+app.use('/total', require(path.join(__dirname, 'routes/routes.js')));
+app.use('/travel', require(path.join(__dirname, 'routes/routes.js')));
 app.listen(port, () => {
   console.log(`Mr Traveller app listening on port ${port}`);
 });

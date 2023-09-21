@@ -52,6 +52,21 @@ router.get('/submit', (req, res) => {
 router.get('/thankyou', (req, res) => {
     res.sendFile(path.join(__dirname, '../templates/thank.html'));
 });
+router.get('/flight', (req, res) => {
+    res.sendFile(path.join(__dirname, '../templates/flight.html'));
+});
+router.get('/food', (req, res) => {
+    res.sendFile(path.join(__dirname, '../templates/food.html'));
+});
+router.get('/hotel', (req, res) => {
+    res.sendFile(path.join(__dirname, '../templates/hotel.html'));
+});
+router.get('/total', (req, res) => {
+    res.sendFile(path.join(__dirname, '../templates/total.html'));
+});
+router.get('/travel', (req, res) => {
+    res.sendFile(path.join(__dirname, '../templates/travel.html'));
+});
 router.post('/register', async (req, res) => {
     const { name, email, phone, age, mygender, departuredate, returndate, destination, locations, t_and_c } = req.body;
 
