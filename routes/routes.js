@@ -67,6 +67,9 @@ router.get('/total', (req, res) => {
 router.get('/travel', (req, res) => {
     res.sendFile(path.join(__dirname, '../templates/travel.html'));
 });
+router.get('/policy', (req, res) => {
+    res.sendFile(path.join(__dirname, '../templates/policy.html'));
+});
 router.post('/register', async (req, res) => {
     const { name, email, phone, age, mygender, departuredate, returndate, destination, locations, t_and_c } = req.body;
 
