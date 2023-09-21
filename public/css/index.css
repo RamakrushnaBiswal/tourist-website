@@ -255,7 +255,7 @@ nav ul li a{
     font-size: 19px;
     color: #4c4c4c;
     margin-left: 15px;
-    margin-bottom: 2px;
+    margin-bottom: 0px;
     list-style-type: disc;
 }
 
@@ -287,6 +287,24 @@ nav ul li a{
     
 }
 
+#cnlbtn{
+    display: inline-block;
+    background-color: transparent;
+    font-size: 27px;
+    font-weight: 600px;
+    border: 2px solid whitesmoke;
+    border-radius: 60px;
+    width: 220px;
+    cursor: pointer;
+    transition: ease 0.30s;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+#cnlbtn:hover{
+    border: 2px solid red;
+    background-color: red;
+    transform: scale(1.1);
+}
 .col-content h5{
     position: absolute;
     font-size: 25px;
@@ -731,4 +749,88 @@ nav ul li a{
 }
 #totalbody{
     background-color: #6da5c0;
+}
+/* index.css */
+
+/* Default styles for larger screens */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Add styles for smaller screens */
+@media (max-width: 768px) {
+    /* Adjust the font size and spacing for smaller screens */
+    body {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+    
+    /* Make the navigation menu responsive */
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        background-color: #333; /* Add a background color for better visibility */
+        padding: 10px;
+    }
+    
+    .navbar .logo {
+        width: 80px; /* Adjust the logo size for smaller screens */
+    }
+    
+    .navbar ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    
+    .navbar ul li {
+        margin: 10px 0;
+    }
+    
+    .title {
+        text-align: center;
+        padding: 20px;
+    }
+    
+    /* Adjust the styling of the service containers for smaller screens */
+    .container-box {
+        margin: 20px 0;
+        padding: 10px;
+    }
+    
+    .container-box h4 {
+        font-size: 18px;
+    }
+    
+    .container-box p {
+        font-size: 14px;
+    }
+    
+    /* Make the location and package sections responsive */
+    .location-content, .package-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .col-content {
+        flex: 0 0 calc(33.33% - 20px);
+        margin: 10px;
+    }
+    
+    /* Adjust the font size in the footer for smaller screens */
+    .footlinks {
+        font-size: 14px;
+    }
+    
+    /* Adjust the contact information layout in the footer */
+    .social {
+        text-align: center;
+    }
+    
+    pre {
+        white-space: pre-wrap; /* Allow text to wrap on smaller screens */
+    }
 }
