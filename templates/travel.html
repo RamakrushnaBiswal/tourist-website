@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Vehicle Service</title>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-4">
+        <h1 class="text-3xl font-semibold">Vehicle Service</h1>
+
+        <!-- Vehicle Card 1 -->
+        <div class="bg-white rounded-lg shadow-md p-4 mt-4">
+            <h2 class="text-xl font-semibold">Car Rental 1</h2>
+            <p>Price per Day: &#x20B9 3000</p>
+            <img src="car_image_1.jpg" alt="Car Rental 1" class="w-full mt-2">
+            <button class="bg-blue-500 text-white px-4 py-2 mt-2 rent-vehicle" data-price="3000">Rent Now</button>
+        </div>
+
+        <!-- Vehicle Card 2 -->
+        <div class="bg-white rounded-lg shadow-md p-4 mt-4">
+            <h2 class="text-xl font-semibold">Scooter Rental 1</h2>
+            <p>Price per Day: &#x20B9 500</p>
+            <img src="scooter_image_1.jpg" alt="Scooter Rental 1" class="w-full mt-2">
+            <button class="bg-blue-500 text-white px-4 py-2 mt-2 rent-vehicle" data-price="500">Rent Now</button>
+        </div>
+
+        <!-- Total Rentals and Total Price -->
+        <div class="bg-white rounded-lg shadow-md p-4 mt-4">
+            <h2 class="text-xl font-semibold">Total</h2>
+            <p>Total Rentals: <span id="total-rentals" class="font-semibold text-blue-500">0</span></p>
+            <p>Total Price: <span id="total-price" class="font-semibold text-blue-500">0.00  &#x20B9</span></p>
+        </div>
+        <div class="mt-4">
+            <a href="./total"><button class="bg-green-500 text-white px-4 py-2 rounded-lg" id="proceed-to-checkout">Proceed to Checkout</button></a>
+        </div>
+    </div>
+
+    <script>
+        const rentVehicleButtons = document.querySelectorAll('.rent-vehicle');
+        const totalRentals = document.getElementById('total-rentals');
+        const totalPrice = document.getElementById('total-price');
+        const proceedToCheckoutButton = document.getElementById('proceed-to-checkout');
+
+        let totalRentalCount = 0;
+        let total = 0;
+
+        rentVehicleButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const price = parseFloat(button.getAttribute('data-price'));
+                totalRentalCount++;
+                total += price;
+                totalRentals.textContent = totalRentalCount;
+                totalPrice.textContent = total.toFixed(2) + ' INR';
+            });
+        });
+
+        proceedToCheckoutButton.addEventListener('click', () => {
+            if (totalRentalCount === 0) {
+                alert('Please rent at least one vehicle before proceeding to checkout.');
+                // Prevent the default behavior (following the link)
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
