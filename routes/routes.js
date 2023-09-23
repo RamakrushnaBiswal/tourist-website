@@ -76,6 +76,9 @@ router.get('/review', (req, res) => {
 router.get('/offlinemap', (req, res) => {
     res.sendFile(path.join(__dirname, '../templates/offlinemap.html'));
 });
+router.get('/tour', (req, res) => {
+    res.sendFile(path.join(__dirname, '../templates/tour.html'));
+});
 router.post('/register', async (req, res) => {
     const { name, email, phone, age, mygender, departuredate, returndate, destination, locations, t_and_c } = req.body;
 

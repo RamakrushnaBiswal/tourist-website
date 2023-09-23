@@ -21,6 +21,7 @@ app.use('/travel', require(path.join(__dirname, 'routes/routes.js')));
 app.use('/policy', require(path.join(__dirname, 'routes/routes.js')));
 app.use('/review', require(path.join(__dirname, 'routes/routes.js')));
 app.use('/offlinemap', require(path.join(__dirname, 'routes/routes.js')));
+app.use('/tour', require(path.join(__dirname, 'routes/routes.js')));
 
 app.listen(port, () => {
   console.log(`Mr Traveller app listening on port ${port}`);
