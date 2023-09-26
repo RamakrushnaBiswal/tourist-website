@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const router = express.Router();
 const mysql = require('mysql2/promise');
+const bcrypt = require('bcrypt');
 
 const userdata = mysql.createPool({
   host: 'localhost',
@@ -79,6 +80,12 @@ router.get('/offlinemap', (req, res) => {
 router.get('/tour', (req, res) => {
     res.sendFile(path.join(__dirname, '../templates/tour.html'));
 });
+router.get('/login', (req, res) => {
+    res.sendFile(path.join(__dirname, '../templates/login.html'));
+});
+router.get('/signup', (req, res) => {
+    res.sendFile(path.join(__dirname, '../templates/signup.html'));
+});
 router.post('/register', async (req, res) => {
     const { name, email, phone, age, mygender, departuredate, returndate, destination, locations, t_and_c } = req.body;
 
@@ -117,6 +124,63 @@ router.post('/submit', (req, res) => {
       console.error('Error submitting form:', err);
       res.status(500).send('Internal Server Error');
     });
+});
+
+router.post('/signup', async (req, res) => {
+  const { name, email, password } = req.body;
+
+  try {
+      // Hash the password using bcrypt
+      const hashedPassword = await bcrypt.hash(password, 10); // Adjust the saltRounds value as needed
+
+      // Insert the user into the database
+      const [rows, fields] = await userdata.execute(
+          'INSERT INTO myusers (name, email, password) VALUES (?, ?, ?)',
+          [name, email, hashedPassword]
+      );
+
+      res.redirect('./success');
+  } catch (error) {
+      console.error('Error inserting user data into the database:', error);
+      res.status(500).send('Registration failed. Please try again later.');
+  }
+});
+
+// Handle user login
+router.post('/login', async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+      // Get a connection from the pool
+      const connection = await userdata.getConnection();
+
+      // Query the database to check if the user exists
+      const [rows] = await connection.query('SELECT * FROM myusers WHERE email = ?', [email]);
+
+      // Release the connection back to the pool
+      connection.release();
+
+      if (rows.length === 0) {
+          // User not found
+          return res.status(404).json({ message: 'User not found' });
+      }
+
+      const user = rows[0];
+
+      // Compare the hashed password using bcrypt
+      const passwordMatch = await bcrypt.compare(password, user.password);
+
+      if (passwordMatch) {
+          // Successful login
+          return res.redirect('./home');
+      } else {
+          // Incorrect password
+          return res.status(401).json({ message: 'Incorrect password' });
+      }
+  } catch (error) {
+      console.error('Error in login:', error);
+      return res.status(500).json({ message: 'Internal server error' });
+  }
 });
 
 module.exports = router;

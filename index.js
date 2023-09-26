@@ -4,6 +4,9 @@ const app = express();
 const port = process.env.PORT || 3000;
 app.use(express.static('public'));
 
+
+app.use(express.json());
+
 app.use('/', require(path.join(__dirname, 'routes/routes.js')));
 app.use('/contact', require(path.join(__dirname, 'routes/routes.js')));
 app.use('/about', require(path.join(__dirname, 'routes/routes.js')));
@@ -22,6 +25,8 @@ app.use('/policy', require(path.join(__dirname, 'routes/routes.js')));
 app.use('/review', require(path.join(__dirname, 'routes/routes.js')));
 app.use('/offlinemap', require(path.join(__dirname, 'routes/routes.js')));
 app.use('/tour', require(path.join(__dirname, 'routes/routes.js')));
+app.use('/login', require(path.join(__dirname, 'routes/routes.js')));
+app.use('/signup', require(path.join(__dirname, 'routes/routes.js')));
 
 app.listen(port, () => {
   console.log(`Mr Traveller app listening on port ${port}`);
